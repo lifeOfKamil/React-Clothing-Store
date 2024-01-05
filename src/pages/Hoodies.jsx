@@ -1,22 +1,36 @@
-import React from 'react'
-import Announcement from '../components/Announcement'
-import Navbar from '../components/Navbar'
-import ProductDescription from '../components/ProductDescription'
-import Products from '../components/Products'
-import SortFilter from '../components/SortFilter'
-import Footer from '../components/Footer'
+import React, { useState } from "react";
+import Announcement from "../components/Announcement";
+import Navbar from "../components/Navbar";
+import ProductDescription from "../components/ProductDescription";
+import Products from "../components/Products";
+import SortFilter from "../components/SortFilter";
+import Footer from "../components/Footer";
 
 const Hoodies = () => {
-  return (
-    <div>
-      <Announcement />
-      <Navbar />
-      <SortFilter />
-      <ProductDescription />
-      <Products />
-      <Footer />
-    </div>
-  )
-}
+	const [sortOption, setSortOption] = useState(null);
+	const [filterOption, setFilterOption] = useState("");
 
-export default Hoodies
+	const handleSortChange = (option) => {
+		setSortOption(option);
+	};
+
+	const handleFilterChange = (color) => {
+		setFilterOption(color);
+	};
+
+	return (
+		<div>
+			<Announcement />
+			<Navbar />
+			<SortFilter
+				onSortChange={handleSortChange}
+				onFilterChange={handleFilterChange}
+			/>
+			<ProductDescription />
+			<Products sortOption={sortOption} filterOption={filterOption} />
+			<Footer />
+		</div>
+	);
+};
+
+export default Hoodies;

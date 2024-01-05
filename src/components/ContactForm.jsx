@@ -1,9 +1,9 @@
-import React from 'react'
-import styled from 'styled-components';
-import tw from 'twin.macro';
+import React from "react";
+import styled from "styled-components";
+import tw from "twin.macro";
 
 const Container = styled.div`
-  ${tw`
+	${tw`
     w-full
     h-full
     mb-16
@@ -11,7 +11,7 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
-  ${tw`
+	${tw`
     flex
     flex-col
     gap-4
@@ -30,7 +30,7 @@ const Wrapper = styled.div`
 `;
 
 const LeftSection = styled.div`
-  ${tw`
+	${tw`
     w-64
     lg:w-72
     2xl:w-80
@@ -39,14 +39,14 @@ const LeftSection = styled.div`
 `;
 
 const RightSection = styled.div`
-  ${tw`
+	${tw`
     md:m-0
   `};
 `;
 
 const Title = styled.h1`
-  color: #4f4f4f;
-  ${tw`
+	color: #4f4f4f;
+	${tw`
     w-full
     text-center
     text-2xl
@@ -61,9 +61,9 @@ const Title = styled.h1`
 `;
 
 const InfoHeader = styled.h3`
-  font-family: futura-pt, sans-serif;
-  color: #333333;
-  ${tw`
+	font-family: futura-pt, sans-serif;
+	color: #333333;
+	${tw`
     text-xl
     font-medium
     pb-2
@@ -72,14 +72,14 @@ const InfoHeader = styled.h3`
 `;
 
 const InfoContainer = styled.div`
-  ${tw`
+	${tw`
     text-center
   `};
 `;
 
 const DividedContainer = styled(InfoContainer)`
-  border-color: #BDBDBD;
-  ${tw`
+	border-color: #bdbdbd;
+	${tw`
     border-solid
     border
     border-r-0
@@ -90,8 +90,8 @@ const DividedContainer = styled(InfoContainer)`
 `;
 
 const InfoText = styled.p`
-  color: #4f4f4f;
-  ${tw`
+	color: #4f4f4f;
+	${tw`
     text-base
     font-light
     pb-9
@@ -100,22 +100,20 @@ const InfoText = styled.p`
 `;
 
 const InputHeader = styled.p`
-  color: #4f4f4f;
-  ${tw`
+	color: #333333;
+	${tw`
     pb-2
-    tracking-wide
-    text-sm
     font-medium
+    text-base
   `};
 `;
 
 const TextBox = styled.input`
-  border: 1px solid #BDBDBD !important;
-  ${tw`
+	border: 1px solid #bdbdbd;
+	${tw`
     text-sm
     w-64
     mb-6
-    border-none
     lg:w-72
     2xl:w-80
     3xl:w-96
@@ -123,53 +121,65 @@ const TextBox = styled.input`
   `};
 `;
 
+const TextArea = styled.textarea`
+	border: 1px solid #bdbdbd;
+	${tw`
+  text-sm
+  w-64
+  lg:w-72
+  2xl:w-80
+  3xl:w-96
+  3xl:mb-12
+`};
+`;
+
 const SubmitButton = styled.button`
-  background-color: #F5F5F5;
-  border: 1px solid #828282 !important;
-  ${tw`
-    tracking-wider
+	background-color: #f5f5f5;
+	border: 1px solid #828282;
+	${tw`
     rounded-md
     px-4
     py-2
     block
-    border-none
     cursor-pointer
     md:mr-auto
     md:ml-auto
   `}
-`
+`;
 
 const ContactForm = () => {
-  return (
-    <Container>
-      <Title>CONTACT US</Title>
-      <Wrapper>
-        <LeftSection>
-          <InfoContainer>
-            <InfoHeader>Support Email</InfoHeader>
-            <InfoText>contactus@voexchicago.com</InfoText>
-          </InfoContainer>
-          <DividedContainer>
-            <InfoHeader>Reach out to us on Instagram</InfoHeader>
-            <InfoText style={{ "paddingBottom": '0px' }}>@voexchicago</InfoText>
-          </DividedContainer>
-          <InfoContainer>
-            <InfoHeader style={{ "paddingTop": '36px' }}>For Business Inquiries</InfoHeader>
-            <InfoText>contactus@voexchicago.com</InfoText>
-          </InfoContainer>
-        </LeftSection>
-        <RightSection>
-          <InputHeader>Name</InputHeader>
-          <TextBox />
-          <InputHeader>Email</InputHeader>
-          <TextBox />
-          <InputHeader>Message</InputHeader>
-          <TextBox style={{ 'height': '125px' }} />
-          <SubmitButton>SEND</SubmitButton>
-        </RightSection>
-      </Wrapper>
-    </Container>
-  )
-}
+	return (
+		<Container>
+			<Title>CONTACT US</Title>
+			<Wrapper>
+				<LeftSection>
+					<InfoContainer>
+						<InfoHeader>Support Email</InfoHeader>
+						<InfoText>contactus@voexchicago.com</InfoText>
+					</InfoContainer>
+					<DividedContainer>
+						<InfoHeader>Reach out to us on Instagram</InfoHeader>
+						<InfoText style={{ paddingBottom: "0px" }}>@voexchicago</InfoText>
+					</DividedContainer>
+					<InfoContainer>
+						<InfoHeader style={{ paddingTop: "36px" }}>
+							For Business Inquiries
+						</InfoHeader>
+						<InfoText>contactus@voexchicago.com</InfoText>
+					</InfoContainer>
+				</LeftSection>
+				<RightSection>
+					<InputHeader>Name</InputHeader>
+					<TextBox />
+					<InputHeader>Email</InputHeader>
+					<TextBox />
+					<InputHeader>Message</InputHeader>
+					<TextArea style={{ height: "125px" }} />
+					<SubmitButton>Send</SubmitButton>
+				</RightSection>
+			</Wrapper>
+		</Container>
+	);
+};
 
-export default ContactForm
+export default ContactForm;

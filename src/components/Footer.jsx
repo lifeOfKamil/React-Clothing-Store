@@ -1,31 +1,35 @@
-import { SearchOutlined } from '@material-ui/icons';
-import React from 'react';
-import styled from 'styled-components';
-import tw from 'twin.macro';
+import { SearchOutlined } from "@material-ui/icons";
+import React from "react";
+import styled from "styled-components";
+import tw from "twin.macro";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
-  ${tw`
+	background-color: #212121;
+	${tw`
     relative
     w-full
     h-52
-    mb-14
-    md:mb-0
+    md:pb-0
   `};
 `;
 
 const Wrapper = styled.div`
-  ${tw`
-    mt-4
-    mr-10
-    ml-10
-    md:mt-8
-    md:ml-32
-    md:mr-24
+	background-color: #212121;
+	${tw`
+    pt-4
+    pr-10
+    pl-10
+    pb-16
+    md:pt-8
+    md:pl-32
+    md:pr-24
   `};
 `;
 
 const Logo = styled.h1`
-  ${tw`
+	color: #fcfcfc;
+	${tw`
     font-semibold
     text-5xl
     leading-loose
@@ -38,7 +42,7 @@ const Logo = styled.h1`
 `;
 
 const NavContainer = styled.div`
-  ${tw`
+	${tw`
     w-full
     flex
     flex-row
@@ -46,7 +50,7 @@ const NavContainer = styled.div`
 `;
 
 const NavList = styled.ul`
-  ${tw`
+	${tw`
     list-none
     pl-0
     align-middle
@@ -58,8 +62,8 @@ const NavList = styled.ul`
 `;
 
 const NavItem = styled.li`
-    color: #333333;
-  ${tw`
+	color: #fcfcfc;
+	${tw`
     list-none
     px-2
     text-base
@@ -76,7 +80,7 @@ const NavItem = styled.li`
 `;
 
 const SearchContainer = styled.div`
-  ${tw`
+	${tw`
     flex
     justify-center
     mt-6
@@ -85,42 +89,58 @@ const SearchContainer = styled.div`
 `;
 
 const Input = styled.input`
-    font-family: futura-pt, sans-serif;
-    color: #4f4f4f;
-  ${tw`
+	font-family: futura-pt, sans-serif;
+	color: #4f4f4f;
+	${tw`
     text-base
     opacity-60
     font-medium
   `};
 `;
 
-const Footer = () => {
-  return (
-    <Container>
-      <Wrapper>
-        <Logo>VŒX</Logo>
-        <NavContainer>
-          <NavList>
-            <NavItem>Clothing</NavItem>
-            <NavItem>Accessories</NavItem>
-            <NavItem>About</NavItem>
-            <NavItem>Contact</NavItem>
-            <NavItem>Follow Us</NavItem>
-            <NavItem>Email Sign-Up</NavItem>
-            <NavItem>FAQ</NavItem>
-            <NavItem>Shipping</NavItem>
-            <NavItem>Legal</NavItem>
-          </NavList>
-        </NavContainer>
-        <SearchContainer>
-          <SearchOutlined style={{
-            color: "828282", fontSize: 30, paddingRight: 8, cursor: 'pointer'
-          }} />
-          <Input placeholder='Search' />
-        </SearchContainer>
-      </Wrapper>
-    </Container>
-  )
-}
+const linkStyle = {
+	textDecoration: "none",
+	color: "#fcfcfc",
+};
 
-export default Footer
+const Footer = () => {
+	return (
+		<Container>
+			<Wrapper>
+				<Logo>VŒX</Logo>
+				<NavContainer>
+					<NavList>
+						<NavItem>
+							<Link to="/Hoodies" style={linkStyle}>
+								Clothing
+							</Link>
+						</NavItem>
+						<NavItem>Accessories</NavItem>
+						<NavItem>About</NavItem>
+						<NavItem>
+							<Link style={linkStyle}>Contact</Link>
+						</NavItem>
+						<NavItem>Follow Us</NavItem>
+						<NavItem>Email Sign-Up</NavItem>
+						<NavItem>FAQ</NavItem>
+						<NavItem>Shipping</NavItem>
+						<NavItem>Legal</NavItem>
+					</NavList>
+				</NavContainer>
+				<SearchContainer>
+					<SearchOutlined
+						style={{
+							color: "828282",
+							fontSize: 30,
+							paddingRight: 8,
+							cursor: "pointer",
+						}}
+					/>
+					<Input placeholder="Search" />
+				</SearchContainer>
+			</Wrapper>
+		</Container>
+	);
+};
+
+export default Footer;
